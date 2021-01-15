@@ -22,50 +22,6 @@ void run_test(void(*unit_test)(), const char* name) {
     }
 }
 
-void additionTest() {
-    MathCalculator calculator{};
-
-    std::string one_str = "1";
-    std::string ten_str = "10";
-    std::string hundred_str = "100";
-
-    int one = std::stoi(one_str);
-    int ten = std::stoi(ten_str);
-    int hundred = std::stoi(hundred_str);
-
-    cout << one << " " << ten << " " << hundred << "\n";
-
-    assert_that(calculator.CalculateInt("+", 1, 1) == 2, "The Calculation failed.");
-    assert_that(calculator.CalculateInt("+", 10, 10) == 20, "The Calculation failed.");
-    assert_that(calculator.CalculateInt("+", 100, 100) == 200, "The Calculation failed.");
-
-    assert_that(calculator.CalculateInt("+", one, one) == 2, "The Calculation failed.");
-    assert_that(calculator.CalculateInt("+", ten, ten) == 20, "The Calculation failed.");
-    assert_that(calculator.CalculateInt("+", hundred, hundred) == 200, "The Calculation failed.");
-}
-
-void subtractionTest() {
-    MathCalculator calculator{};
-
-    std::string one_str = "1";
-    std::string ten_str = "10";
-    std::string hundred_str = "100";
-
-    int one = std::stoi(one_str);
-    int ten = std::stoi(ten_str);
-    int hundred = std::stoi(hundred_str);
-
-    cout << one << " " << ten << " " << hundred << "\n";
-
-    assert_that(calculator.CalculateInt("-", 1, 1) == 0, "The Calculation failed.");
-    assert_that(calculator.CalculateInt("-", 10, 10) == 0, "The Calculation failed.");
-    assert_that(calculator.CalculateInt("-", 100, 100) == 0, "The Calculation failed.");
-
-    assert_that(calculator.CalculateInt("-", one, one) == 0, "The Calculation failed.");
-    assert_that(calculator.CalculateInt("-", ten, ten) == 0, "The Calculation failed.");
-    assert_that(calculator.CalculateInt("-", hundred, hundred) == 0, "The Calculation failed.");
-}
-
 int main() {
     MathCalculator calculator{};
 
@@ -91,9 +47,6 @@ int main() {
     int answer = calculator.CalculateInt(stringA, a, b);
 
     cout << "The answer to " << a << " " << stringA << " " << b << " is " << answer << "\n";
-
-    //run_test(additionTest, "Adding two numbers together");
-    //run_test(subtractionTest, "Subtracting two numbers together");
 
     return 0;
 }
