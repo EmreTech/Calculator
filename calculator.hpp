@@ -12,5 +12,5 @@ struct MathCalculator {
     int Division(int a, int b);
 
     // Function for solving a problem for addition, subtraction, mutiplication, and division
-    int CalculateInt (std::string Operator, int a, int b);
+    int CalculateInt (std::string_view Operator, int a, int b);
 };
