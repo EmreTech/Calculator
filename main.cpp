@@ -7,8 +7,6 @@
 #include <string>
 #include "calculator.hpp"
 
-using namespace std;
-
 constexpr void assert_that(bool condition, const char* message) {
     if (!condition) throw std::runtime_error{ message };
 }
@@ -16,11 +14,12 @@ constexpr void assert_that(bool condition, const char* message) {
 void run_test(void(*unit_test)(), const char* name) {
     try {
         unit_test();
-        cout << "[+] Test " << name << " successful.\n";
+        std::cout << "[+] Test " << name << " successful.\n";
     } catch (const std::exception& e) {
-        cout << "[-] Test failure in " << name << ". " << e.what() << "\n";
+        std::cout << "[-] Test failure in " << name << ". " << e.what() << "\n";
     }
 }
+ 
 
 int main() {
     MathCalculator calculator{};
@@ -31,9 +30,9 @@ int main() {
     std::string stringA{};
     std::string stringB{};
 
-    cout << "Enter an operator (+, -, *, /): ";
+    std::cout << "Enter an operator (+, -, *, /): ";
     getline(std::cin, stringA);
-    cout << "Enter two numbers with a space in-between them: ";
+    std::cout << "Enter two numbers with a space in-between them: ";
     getline(std::cin, stringB);
 
     int pos = stringB.find(" ");
@@ -41,12 +40,21 @@ int main() {
     std::string a_str = stringB.substr(0, pos);
     std::string b_str = stringB.substr(pos + 1);
 
-    a = std::stoi(a_str);
-    b = std::stoi(b_str);
+    bool a_result = calculator.contains_number(a_str);
+    bool b_result = calculator.contains_number(b_str);
+
+    if (a_result && b_result){
+    	a = std::stoi(a_str);
+    	b = std::stoi(b_str);
+    }
+    else {
+        std::cout << "Any letters or symbols are not numbers. Please use numbers." << "\n";
+    }
 
     int answer = calculator.CalculateInt(stringA, a, b);
 
-    cout << "The answer to " << a << " " << stringA << " " << b << " is " << answer << "\n";
+    std::cout << "The answer to " << a << " " << stringA << " " << b << " is " << answer << "\n";
 
     return 0;
 }
+  
