@@ -34,3 +34,35 @@ int MathCalculator::CalculateInt (std::string Operator, int a, int b) {
     // Returns the answer for another variable
     return 0;
 }
+
+int MathCalculator::CalculateMoreInt(std::string_view Operator) {
+    int answer = VectorCalculator[0];
+    VectorCalculator.erase(VectorCalculator.begin());
+
+    while (!VectorCalculator.empty()) {
+        switch (turnStringToIntOperator(Operator)) {
+            case 1:
+            answer += VectorCalculator[0];
+            break;
+
+            case 2:
+            answer -= VectorCalculator[0];
+            break;
+
+            case 3:
+            answer *= VectorCalculator[0];
+            break;
+
+            case 4:
+            answer /= VectorCalculator[0];
+            break;
+
+            default:
+            break;
+        }
+
+        VectorCalculator.erase(VectorCalculator.begin());
+    }
+
+    return answer;
+}

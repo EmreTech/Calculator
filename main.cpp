@@ -19,10 +19,38 @@ void run_test(void(*unit_test)(), const char* name) {
         std::cout << "[-] Test failure in " << name << ". " << e.what() << "\n";
     }
 }
- 
+
+int moreCalculating() {
+    std::vector<int> calculateVector;
+    MathCalculator calculator{calculateVector};
+
+    std::string operation;
+    std::string number;
+
+    bool inputComplete = false;
+
+    std::cout << "Enter an operator (+, -, *, /): " << "\n";
+    getline(std::cin, operation);
+    
+    while (!inputComplete) {
+        std::cout << "Enter one number at a time (or press q to stop):" << "\n";
+        getline(std::cin, number);
+        if (number == "q") {
+            inputComplete = true;
+        } else {
+            if (calculator.contains_number(number)) {
+                calculator.setVector(std::stoi(number));
+            } else break;
+        }
+    }
+
+    int answer = calculator.CalculateMoreInt(operation);
+
+    return answer;
+} 
 
 int main() {
-    MathCalculator calculator{};
+    /*MathCalculator calculator{};
 
     int a{};
     int b{};
@@ -53,7 +81,10 @@ int main() {
 
     int answer = calculator.CalculateInt(stringA, a, b);
 
-    std::cout << "The answer to " << a << " " << stringA << " " << b << " is " << answer << "\n";
+    std::cout << "The answer to " << a << " " << stringA << " " << b << " is " << answer << "\n";*/
+
+    int answer = moreCalculating();
+    std::cout << "The answer is: " << answer << "\n";
 
     return 0;
 }
