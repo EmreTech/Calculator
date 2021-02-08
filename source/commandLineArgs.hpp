@@ -1,13 +1,15 @@
 #include <iostream>
 #include <string>
+#include <string_view>
+#include <vector>
 #include "calculator.hpp"
 
 struct CMDArgs {
 
     CMDArgs() {}
 
-    void setFromCommandArgs(int argc, char** argv);
-    int solveFromArgs(int argc, char** argv, MathCalculator& calculator);
+    void setFromCommandArgs(int argc, std::string argv);
+    int solveFromArgs(int argc, MathCalculator& calculator);
 
     bool getVerbose() {
         return verbose;
@@ -35,4 +37,6 @@ struct CMDArgs {
     bool subtract;
     bool mutiply;
     bool divide;
+
+    std::vector<std::string> all_args;
 };

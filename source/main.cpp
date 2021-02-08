@@ -3,6 +3,7 @@
 #include <exception>
 #include <new>
 #include <string>
+#include <vector>
 #include "calculator.hpp"
 #include "commandLineArgs.hpp"
 
@@ -45,9 +46,13 @@ int moreCalculating(MathCalculator& calculator) {
     return answer;
 } 
 
-int main(int argc, char** argv) {
+int main(int argc, char* argv[]) {
     CMDArgs cmd{};
-    cmd.setFromCommandArgs(argc, argv);
+
+    for (size_t q{ 1 }; q < argc; q++) {
+        std::string argument = std::string(argv[q]);
+        cmd.setFromCommandArgs(argc, argument);
+    }
 
     std::vector<int> calInt{};
     MathCalculator calculator{ calInt };
