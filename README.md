@@ -4,7 +4,6 @@ This is just a random Calculator program I made all in C++ for the purpose of pu
 
 ## Compiling this program
 
-To compile this program, you should use g++ or clang++. I am not sure if the Windows C++ compiler will work or not, so feel free to try it.
-You first need to clone this GitHub repo to any folder you want. Then I compiled and ran the program with 
-``` clang++ -o a.out main.cpp calculator.cpp -std=c++17 && ./a.out```
-and it should launch the program. If you get an error like ``command clang++ not found`` then you have to install build-essentials for Linux, or for macOS the Command Line Utils from XCode.
+To compile this program, you need a compiler like gcc or clang. This has been untested with the Windows C++ compiler. You also need to install CMake, which the program uses to generate the build files.
+Clone this GitHub repo, go into the folder for the GitHub repo, and type in ``mkdir build && cd build``. You can then run ``cmake ..``to configure and generate the build files, then run ``make`` to compile the actual program.
+Once it is done, you can now run ``./Calculator`` and it should work! Enjoy!
