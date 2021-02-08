@@ -1,3 +1,5 @@
+#pragma once
+
 #include <chrono>
 #include <thread>
 #include <iostream>
@@ -10,13 +12,13 @@ struct MathCalculator {
     MathCalculator (std::vector<int> Vector) : VectorCalculator{ Vector } {}
     
     // Smaller functions for solving problems. Used mostly in the function below
-    int Addition(int a, int b);
-    int Subtraction(int a, int b);
-    int Mutiplication(int a, int b);
-    int Division(int a, int b);
+    static int Addition(int a, int b);
+    static int Subtraction(int a, int b);
+    static int Mutiplication(int a, int b);
+    static int Division(int a, int b);
 
     // Function for solving a problem for addition, subtraction, mutiplication, and division
-    int CalculateInt(std::string Operator, int a, int b);
+    static int CalculateInt(std::string Operator, int a, int b);
     int CalculateMoreInt(std::string_view Operator);
 
     bool contains_number(std::string str) {
