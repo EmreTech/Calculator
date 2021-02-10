@@ -2,3 +2,4 @@
 *.exe
 *.app
 build/*
+*.out
