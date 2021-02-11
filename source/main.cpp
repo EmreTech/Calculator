@@ -41,9 +41,7 @@ float moreCalculating(MathCalculator<float>& calculator) {
         }
     }
 
-    float answer = calculator.CalculateMoreInt(operation);
-
-    return answer;
+    return calculator.CalculateMoreInt(operation);
 } 
 
 int main(int argc, char* argv[]) {
