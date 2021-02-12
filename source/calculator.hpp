@@ -18,34 +18,34 @@ struct MathCalculator {
     }
     
     // Smaller functions for solving problems. Used mostly in the function below
-    static int Addition(int a, int b) {
-        int answer{};
+    static T Addition(T a, T b) {
+        T answer{};
         answer = a + b;
         return answer;
     }
-    static int Subtraction(int a, int b) {
-        int answer{};
+    static T Subtraction(T a, T b) {
+        T answer{};
         answer = a - b;
         return answer;
     }
-    static int Mutiplication(int a, int b) {
-        int answer{};
+    static T Mutiplication(T a, T b) {
+        T answer{};
         answer = a * b;
         return answer;
     }
-    static int Division(int a, int b) {
-        int answer{};
+    static T Division(T a, T b) {
+        T answer{};
         answer = a / b;
         return answer;
     }
 
     // Function for solving a problem for addition, subtraction, mutiplication, and division
-    static int CalculateInt(std::string Operator, int a, int b) {
+    T CalculateInt(std::string Operator, T a, T b) {
         // Find out what operator the user is using, then solve
-        if (Operator == "+" || Operator == "addition") return Addition(a, b);
-        if (Operator == "-" || Operator == "subtraction") return Subtraction(a, b);
-        if (Operator == "*" || Operator == "mutiplication") return Mutiplication(a, b);
-        if (Operator == "/" || Operator == "division") return Division(a, b);
+        if (Operator == "+" || Operator == "addition") return this->Addition(a, b);
+        if (Operator == "-" || Operator == "subtraction") return this->Subtraction(a, b);
+        if (Operator == "*" || Operator == "mutiplication") return this->Mutiplication(a, b);
+        if (Operator == "/" || Operator == "division") return this->Division(a, b);
 
         // Returns the answer for another variable
         return 0;
