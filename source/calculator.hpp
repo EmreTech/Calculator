@@ -7,6 +7,7 @@
 #include <utility>
 #include <type_traits>
 
+namespace Calculator {
 template <typename T>
 struct MathCalculator {
 
@@ -104,3 +105,4 @@ struct MathCalculator {
     private:
     std::vector<T> VectorCalculator;
 };
+}

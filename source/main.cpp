@@ -20,7 +20,7 @@ void run_test(void(*unit_test)(), const char* name) {
     }
 }
 
-float moreCalculating(MathCalculator<float>& calculator) {
+float moreCalculating(Calculator::MathCalculator<float>& calculator) {
     std::string operation;
     std::string number;
 
@@ -31,7 +31,7 @@ float moreCalculating(MathCalculator<float>& calculator) {
     
     while (!inputComplete) {
         std::cout << "Enter one number at a time (or press q to stop):" << "\n";
-        getline(std::cin, number);
+        std::cin >> number;
         if (number == "q") {
             inputComplete = true;
         } else {
@@ -53,10 +53,10 @@ int main(int argc, char* argv[]) {
     }*/
 
     std::vector<float> calInt{};
-    MathCalculator<float> calculator{ calInt };
+    Calculator::MathCalculator<float> cal{ calInt };
 
     //if (!cmd.getAdd() && !cmd.getSubtract() && !cmd.getMutiply() && !cmd.getDivide()) {
-    float answer = moreCalculating(calculator);
+    float answer = moreCalculating(cal);
     std::cout << "The answer is: " << answer << "\n";
     //}
 
