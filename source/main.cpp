@@ -5,7 +5,7 @@
 #include "calculator.hpp"
 #include "commandLineArgs.hpp"
 
-float moreCalculating(std::vector<float>& vec) {
+float moreCalculating() {
     std::string operation;
     std::string val;
 
@@ -17,14 +17,7 @@ float moreCalculating(std::vector<float>& vec) {
     std::cout << "Enter all numbers with a space in-between: " << std::endl;
     std::getline(std::cin, val);
 
-    std::istringstream iss(val);
-    std::string num;
-
-    while (iss >> num) {
-        vec.emplace_back(std::stof(num));
-    }
-
-    return Calculator::solve(vec, operation);
+    return Calculator::solve(val, operation);
 } 
 
 int main(int argc, char* argv[]) {
@@ -38,9 +31,7 @@ int main(int argc, char* argv[]) {
     
     if (cmdArgsResult == 0) return EXIT_SUCCESS;
     else if (cmdArgsResult == 1) {
-        std::vector<float> calInt{};
-
-        float answer = moreCalculating(calInt);
+        float answer = moreCalculating();
         std::cout << "The answer is: " << answer << "\n";
 
         return EXIT_SUCCESS;
@@ -63,6 +54,6 @@ int main(int argc, char* argv[]) {
 
     } else return EXIT_FAILURE;
 
-    return EXIT_SUCCESS;
+    return EXIT_FAILURE;
 }
   
